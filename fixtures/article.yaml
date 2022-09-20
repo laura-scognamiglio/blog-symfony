@@ -1,0 +1,6 @@
+# fixtures/article.yaml
+ 
+App\Entity\Article:
+    article_{1..10}:
+        title: <name()>
+        content: <text()>

@@ -1,0 +1,7 @@
+# fixtures/comment.yaml
+
+App\Entity\Comment:
+    comment_{1..25}:
+        com: <realText()>
+        id_article: "@article_*"
+        id_user: "@user_*"
