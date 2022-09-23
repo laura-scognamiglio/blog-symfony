@@ -6,14 +6,17 @@
 
     <div class="div">
 
-        {# {{dump(article)}} #}
-
+        
         {% for myArticle in article %} 
-            <h1>{{myArticle.title}}</h1>
-            <p>{{myArticle.content}}</p>
+        <h1>{{myArticle.title}}</h1>
+        <p>{{myArticle.content}}</p>
+       <!-- ds ma bcl je recupee l'id article.id je le met href qd je suis sur l'article solo j'appelle ma fonction pr commenté  -->
+       <!-- easy admin doc regarder la doc pr faire les roles -->
+       <a href="/article/{{ myArticle.id }}">View</a>
         {% endfor %}
-
+        {{form(comment_form)}}
+        
     </div>  
-  
+   
 
 {% endblock %}
