@@ -5,6 +5,9 @@ namespace App\Controller\Admin;
 use App\Controller\Admin\ArticleCrudController;
 use App\Controller\Admin\UserCrudController;
 
+use App\Entity\User;
+use App\Entity\Article;
+
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -47,6 +50,11 @@ class AdminController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         // yield MenuItem::linkToCrud('Article', 'fas fa-list', ArticleCrudController::class);
-        // yield MenuItem::linkToCrud('User', 'fas fa-list', UserCrudController::class);
+        yield MenuItem::subMenu('User', 'fas fa-list',)->setSubItems([
+            MenuItem::linkTocrud('User', 'fas fa-list', User::class)
+        ]);
+        yield MenuItem::subMenu('Article', 'fas fa-list',)->setSubItems([
+            MenuItem::linkTocrud('Article', 'fas fa-list', Article::class)
+        ]);
     }
 }
